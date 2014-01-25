@@ -13,10 +13,33 @@ body {
   position: relative;
 }
 
-div.map {
+div.chart {
 
 }
 
-div.chart {
-
+div.map {
+  width: 1000px;
+  height: 472px;
+  position: relative;
+  .bars {
+    width: 85px;
+    position: absolute;
+    div {
+      margin-right: 5px;
+      width: 20px;
+      float: left;
+      &[data-year="2011"] {
+        background-color: blue;
+        border: 1px solid blue;
+      }
+      &[data-year="2012"] {
+        background-color: green;
+        border: 1px solid green;
+      }
+      &[data-year="2013"] {
+        background-color: red;
+        border: 1px solid red;
+      }
+    }
+  }
 }
