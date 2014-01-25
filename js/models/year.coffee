@@ -1,10 +1,3 @@
-class App.Years
-  constructor: () ->
-    @years = []
-
-  add: (year) ->
-    @years.push(year)
-
 class App.Year extends Backbone.Model
   constructor: (@dailyData, @year) ->
     @weeklyData = {}
@@ -15,7 +8,6 @@ class App.Year extends Backbone.Model
         @weeklyData[currentDate.getWeek()] = @weeklyData[currentDate.getWeek()].sumWith(days)
       else
         @weeklyData[currentDate.getWeek()] = days
-      #sum = days.reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
 
   getYear: ->
     @year
@@ -25,3 +17,9 @@ class App.Year extends Backbone.Model
 
   getWeekly: (idx) ->
     @weeklyData[idx]
+
+  getDailySum: (idx) ->
+    @getDaily(idx).reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
+
+  getWeeklySum: (idx) ->
+    @getWeekly(idx).reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
