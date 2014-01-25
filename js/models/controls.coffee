@@ -3,8 +3,7 @@ class App.Controls extends Backbone.View
   className: 'controls'
 
   initialize: (o) ->
-
-
+    App.eventer.on('current', (event) => @current(event))
   render: ->
     str = """
           <input type='button' class='prev' value='&lt;&lt;' />
@@ -22,10 +21,13 @@ class App.Controls extends Backbone.View
     'click .next': 'next'
     'click .prev': 'prev'
 
-  play: ->
+  play: -> App.eventer.trigger('play')
 
-  stop: ->
+  stop: -> App.eventer.trigger('stop')
 
-  next: ->
+  next: -> App.eventer.trigger('next')
 
-  prev: ->
+  prev: -> App.eventer.trigger('prev')
+
+  current: (event) ->
+    @$('.current').html(event)

@@ -15,10 +15,8 @@ window.App =
     )
 
   createPlayer: ->
-    controls = new App.Controls(
-      player: new App.Player()
-    )
-    $('body').append(controls.render().$el)
+    new App.Player()
+    $('body').append((new App.Controls()).render().$el)
 
   createChart: ->
 

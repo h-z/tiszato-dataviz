@@ -16,10 +16,16 @@ class App.Year extends Backbone.Model
     @dailyData[idx]
 
   getWeekly: (idx) ->
-    @weeklyData[idx]
+    if @weeklyData[idx]
+      @weeklyData[idx]
+    else
+      []
 
   getDailySum: (idx) ->
     @getDaily(idx).reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
 
   getWeeklySum: (idx) ->
     @getWeekly(idx).reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
+
+  getLength: ->
+    _.values(@weeklyData).length
