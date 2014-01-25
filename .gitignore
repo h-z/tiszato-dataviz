@@ -1,3 +1,4 @@
 .idea
 js/models/*.js
 css/*.css
+js/app.js
