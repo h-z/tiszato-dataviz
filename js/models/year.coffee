@@ -27,5 +27,10 @@ class App.Year extends Backbone.Model
   getWeeklySum: (idx) ->
     @getWeekly(idx).reduce( ((pv, cv) -> parseInt(pv) + parseInt(cv)) , 0)
 
+  getWeeklySumData: ->
+    for i of @weeklyData
+      @getWeeklySum(i)
+
+
   getLength: ->
     _.values(@weeklyData).length

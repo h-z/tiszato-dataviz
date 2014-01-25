@@ -19,6 +19,41 @@ window.App =
     $('body').append((new App.Controls()).render().$el)
 
   createChart: ->
+    chart = $('.chart').highcharts(
+      chart:
+        type: 'spline'
+      title: 'Évek'
+      xAxis:
+        categories: @categories()
+      yAxis:
+        title:
+          text: 'Horgásznapok'
+        plotLines: [
+          values: 0
+          width: 1
+          color: '#808080'
+        ]
+      plotOptions:
+        spline:
+          marker:
+            enabled: false
+      series: @series()
+    )
+
+  categories: -> [1..54]
+
+  series: ->
+    colors =
+      2011: '#0000ff'
+      2012: '#00ff00'
+      2013: '#ff0000'
+    for year in @years.years
+      serie = {}
+      serie.name = year.getYear()
+      serie.color = colors[serie.name]
+      serie.data = year.getWeeklySumData()
+      serie
+
 
   createBars: ->
     barsData = [
