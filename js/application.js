@@ -26,6 +26,13 @@ Date.prototype.getWeek = function() {
   return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
 }
 
+Array.prototype.sumWith = function(other) {
+  var _this = this;
+  return _.zip(_this, other).map(function(e) {
+    return parseInt(e[0]) + parseInt(e[1]);
+  });
+}
+
 $(function(){
-  App.data();
+  App.init();
 })
