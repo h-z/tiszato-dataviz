@@ -14,12 +14,14 @@ body {
 }
 
 div.chart {
-
+  width: 1200px;
+  height: 425px;
 }
 
 div.map {
   width: 1000px;
   height: 472px;
+  margin: 0 auto;
   position: relative;
   .bars {
     width: 85px;

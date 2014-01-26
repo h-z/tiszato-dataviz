@@ -16,6 +16,9 @@ class App.Player
         2013: data[2013][region]
       App.eventer.trigger("bars-#{region + 1}",  e)
     App.eventer.trigger('current', @idx)
+    chartData = App.years.getWeeklySum(@idx)
+    for serie in App.chart.series
+      serie.addPoint(chartData[serie.name])
     @
 
 

@@ -19,13 +19,18 @@ window.App =
     $('body').append((new App.Controls()).render().$el)
 
   createChart: ->
-    chart = $('.chart').highcharts(
+    $('.chart').highcharts(
       chart:
         type: 'spline'
+        events:
+          load: ->
+            App.chart = @
       title: 'Évek'
       xAxis:
         categories: @categories()
+        max: 53
       yAxis:
+        max: 5000
         title:
           text: 'Horgásznapok'
         plotLines: [
@@ -51,7 +56,7 @@ window.App =
       serie = {}
       serie.name = year.getYear()
       serie.color = colors[serie.name]
-      serie.data = year.getWeeklySumData()
+      serie.data = [] #year.getWeeklySumData()
       serie
 
 
