@@ -18,9 +18,11 @@ class App.Player
     App.eventer.trigger('current', @idx)
     chartData = App.years.getWeeklySum(@idx)
     for serie in App.chart.series
-      serie.addPoint(chartData[serie.name])
+      if @idx == App.years.getMaxLength() - 1
+        serie.setData([])
+      else
+        serie.addPoint(chartData[serie.name])
     @
-
 
   next: ->
     @idx = (@idx + 1) % App.years.getMaxLength()
