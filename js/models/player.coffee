@@ -33,6 +33,7 @@ class App.Player
     @show()
 
   play: =>
+    @stop()
     @timer = setInterval(( => @next()), 1000)
     @show()
 
