@@ -4,7 +4,7 @@ class App.Player
     App.eventer.on('play', (event) => @play(event))
     App.eventer.on('stop', (event) => @stop(event))
     App.eventer.on('next', (event) => @next(event))
-    App.eventer.on('prev', (event) => @prev(event))
+#    App.eventer.on('prev', (event) => @prev(event))
 
 
   show: ->
@@ -30,9 +30,9 @@ class App.Player
       @idx = 1
     @show()
 
-  prev: ->
-    @idx = (@idx - 1) % App.years.getMaxLength()
-    @show()
+#  prev: ->
+#    @idx = (@idx - 1) % App.years.getMaxLength()
+#    @show()
 
   play: =>
     @stop()
