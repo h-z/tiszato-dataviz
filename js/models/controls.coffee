@@ -6,7 +6,7 @@ class App.Controls extends Backbone.View
     App.eventer.on('current', (event) => @current(event))
   render: ->
     str = """
-          <input type='button' class='prev' value='&lt;&lt;' />
+          <!--<input type='button' class='prev' value='&lt;&lt;' />-->
           <input type='button' class='play' value='&gt;' />
           <input type='button' class='stop' value='[ ]' />
           <input type='button' class='next' value='&gt;&gt;' />

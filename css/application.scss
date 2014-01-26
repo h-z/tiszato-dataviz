@@ -49,8 +49,28 @@ div.map {
 .controls {
   width: 440px;
   height: 30px;
-  background-color: cornflowerblue;
-  position: absolute;
+  position: fixed;
+
   top: 0;
   left: 0;
+
+  input, .current {
+    background-color: cornflowerblue;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    color: lightblue;
+    font-weight: bolder;
+    height: 24px;
+    margin: 4px;
+  }
+  .current {
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+    line-height: 20px;
+    width: 30px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
 }

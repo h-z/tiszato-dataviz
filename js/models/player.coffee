@@ -18,14 +18,16 @@ class App.Player
     App.eventer.trigger('current', @idx)
     chartData = App.years.getWeeklySum(@idx)
     for serie in App.chart.series
-      if @idx == App.years.getMaxLength() - 1
+      if @idx == 1
         serie.setData([])
-      else
-        serie.addPoint(chartData[serie.name])
+
+      serie.addPoint(chartData[serie.name])
     @
 
   next: ->
-    @idx = (@idx + 1) % App.years.getMaxLength()
+    @idx++
+    if @idx == App.years.getMaxLength() - 1
+      @idx = 1
     @show()
 
   prev: ->
@@ -34,8 +36,8 @@ class App.Player
 
   play: =>
     @stop()
-    @timer = setInterval(( => @next()), 1000)
-    @show()
+    @timer = setInterval(( => @next()), App.step)
+    @
 
   stop: ->
     clearInterval(@timer)

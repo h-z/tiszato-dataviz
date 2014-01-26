@@ -1,5 +1,6 @@
 window.App =
   years: {}
+  step: 1000
 
   eventer: _.extend({}, Backbone.Events)
 
@@ -28,7 +29,7 @@ window.App =
       title: 'Évek'
       xAxis:
         categories: @categories()
-        max: 53
+        max: _.max(@categories())
       yAxis:
         max: 5000
         title:
@@ -45,7 +46,7 @@ window.App =
       series: @series()
     )
 
-  categories: -> [1..54]
+  categories: -> [1..52]
 
   series: ->
     colors =
