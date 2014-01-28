@@ -26,6 +26,20 @@ window.App =
         events:
           load: ->
             App.chart = @
+            App.eventer.on('current', (event) =>
+              for serie in @series
+                if event['current'] == 1
+                  serie.setData([])
+                serie.addPoint(event['chartData'][serie.name])
+            )
+            App.eventer.on('sum', (sum) =>
+              if sum
+                @yAxis[0].options.max = 100000
+              else
+                @yAxis[0].options.max = 5000
+              for serie in @series
+                serie.setData([])
+            )
       title: 'Évek'
       xAxis:
         categories: @categories()
@@ -59,7 +73,6 @@ window.App =
       serie.color = colors[serie.name]
       serie.data = [] #year.getWeeklySumData()
       serie
-
 
   createBars: ->
     barsData = [

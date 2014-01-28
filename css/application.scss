@@ -54,7 +54,7 @@ div.map {
   top: 0;
   left: 0;
 
-  input, .current {
+  input[type='button'], .current, .summer {
     background-color: cornflowerblue;
     border: 2px solid lightblue;
     border-radius: 5px;
@@ -63,7 +63,7 @@ div.map {
     height: 24px;
     margin: 4px;
   }
-  .current {
+  .current, .summer {
     display: inline-block;
     height: 20px;
     vertical-align: middle;
@@ -72,5 +72,9 @@ div.map {
     text-align: center;
     padding: 0;
     margin: 0;
+  }
+
+  .summer {
+    width: 95px !important;
   }
 }

@@ -11,12 +11,12 @@ class App.Years
   getMaxLength: ->
     @max
 
-  getWeekly: (idx) ->
+  getWeekly: (idx, sum) ->
     _.object(@years.map( (y) ->
-      [y.getYear(), y.getWeekly(idx)]
+      [y.getYear(), y.getWeekly(idx, sum)]
     ))
 
-  getWeeklySum: (idx) ->
+  getWeeklySum: (idx, sum) ->
     _.object(@years.map( (y) ->
-      [y.getYear(), y.getWeeklySum(idx)]
+      [y.getYear(), y.getWeeklySum(idx, sum)]
     ))

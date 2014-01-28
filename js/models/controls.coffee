@@ -10,6 +10,7 @@ class App.Controls extends Backbone.View
           <input type='button' class='play' value='&gt;' />
           <input type='button' class='stop' value='[ ]' />
           <input type='button' class='next' value='&gt;&gt;' />
+          <span class="summer"><input type='checkbox' class='sum' name='sum' id='sum' /><label for='sum'>Összegezve</label></span>
           <span class="current"></span>
           """
     @$el.html(str)
@@ -20,6 +21,7 @@ class App.Controls extends Backbone.View
     'click .stop': 'stop'
     'click .next': 'next'
     'click .prev': 'prev'
+    'click .sum': 'sum'
 
   play: -> App.eventer.trigger('play')
 
@@ -29,5 +31,7 @@ class App.Controls extends Backbone.View
 
   prev: -> App.eventer.trigger('prev')
 
+  sum: (e) -> App.eventer.trigger('sum', $(e.target).is(':checked'))
+
   current: (event) ->
-    @$('.current').html(event)
+    @$('.current').html(event['current'])
