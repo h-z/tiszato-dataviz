@@ -21,15 +21,18 @@ class App.Bars extends Backbone.View
     @
 
   update: (values) ->
-    m = Math.max.apply(null, _.values(values))
-    @$el.css(
-      height: @normalize(m)
-      top: @top - @normalize(m)
-    )
+    nv = {}
     for year, value of values
+      nv[year] = parseInt(value / 10.0)
+    m = Math.max.apply(null, _.values(nv))
+    @$el.css(
+      height: m
+      top: @top - m
+    )
+    for year, value of nv
       @$el.find("div[data-year='#{year}']").css
-        height: @normalize(value)
-        marginTop: @normalize(m - value)
+        height: value
+        marginTop: m - value
 
 
   normalize: (v) ->
