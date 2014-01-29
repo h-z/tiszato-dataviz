@@ -31,8 +31,8 @@ div.map {
       width: 10px;
       float: left;
       &[data-year="2011"] {
-        background-color: #000088;
-        border: 1px solid #0000aa;
+        background-color: #204988;
+        border: 1px solid cornflowerblue;
       }
       &[data-year="2012"] {
         background-color: green;

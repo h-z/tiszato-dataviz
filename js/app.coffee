@@ -64,7 +64,7 @@ window.App =
 
   series: ->
     colors =
-      2011: '#000088'
+      2011: '#204988'
       2012: '#008000'
       2013: '#D1301D'
     for year in @years.years
@@ -105,8 +105,8 @@ window.App =
       left: 875
     ,
       region: 8
-      top: 306
-      left: 921
+      top: 360
+      left: 805
     ,
       region: 9
       top: 258
