@@ -7,7 +7,9 @@ class App.Bars extends Backbone.View
     @bottom = o.bottom
     @top = o.top
     @left = o.left
+    @norm = 10.0
     App.eventer.on("bars-#{@region}", (event) => @update(event))
+    App.eventer.on("sum", (sum) => @norm = if sum then 200.0 else 10.0 )
 
   render: () ->
     cont = ''
@@ -23,7 +25,7 @@ class App.Bars extends Backbone.View
   update: (values) ->
     nv = {}
     for year, value of values
-      nv[year] = parseInt(value / 10.0)
+      nv[year] = parseInt(value / @norm)
     m = Math.max.apply(null, _.values(nv))
     @$el.css(
       height: m
@@ -33,7 +35,3 @@ class App.Bars extends Backbone.View
       @$el.find("div[data-year='#{year}']").css
         height: value
         marginTop: m - value
-
-
-  normalize: (v) ->
-    v * .4
