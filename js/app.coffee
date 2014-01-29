@@ -64,9 +64,9 @@ window.App =
 
   series: ->
     colors =
-      2011: '#0000ff'
-      2012: '#00ff00'
-      2013: '#ff0000'
+      2011: '#000088'
+      2012: '#008000'
+      2013: '#D1301D'
     for year in @years.years
       serie = {}
       serie.name = year.getYear()

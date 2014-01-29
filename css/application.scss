@@ -31,15 +31,15 @@ div.map {
       width: 10px;
       float: left;
       &[data-year="2011"] {
-        background-color: blue;
-        border: 1px solid blue;
+        background-color: #000088;
+        border: 1px solid #0000aa;
       }
       &[data-year="2012"] {
         background-color: green;
-        border: 1px solid green;
+        border: 1px solid #00aa00;
       }
       &[data-year="2013"] {
-        background-color: red;
+        background-color: #D1301D;
         border: 1px solid red;
       }
     }
