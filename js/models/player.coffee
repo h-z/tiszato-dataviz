@@ -10,7 +10,7 @@ class App.Player
 
 
   show: ->
-    data = App.years.getWeekly(@idx, @sumEnabled)
+    data = App.years.getWeekly(@idx, true)
     for region in [0..10]
       e =
         2011: data[2011][region]
@@ -19,7 +19,7 @@ class App.Player
       App.eventer.trigger("bars-#{region + 1}",  e)
     App.eventer.trigger('current',
       current: @idx
-      chartData: App.years.getWeeklySum(@idx, @sumEnabled)
+      chartData: App.years.getWeeklySum(@idx, false)
     )
     @
 

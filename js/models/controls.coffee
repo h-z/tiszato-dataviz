@@ -10,7 +10,7 @@ class App.Controls extends Backbone.View
           <input type='button' class='play' value='&gt;' />
           <input type='button' class='stop' value='[ ]' />
           <input type='button' class='next' value='&gt;&gt;' />
-          <span class="summer"><input type='checkbox' class='sum' name='sum' id='sum' /><label for='sum'>Összegezve</label></span>
+          <!--<span class="summer"><input type='checkbox' class='sum' name='sum' id='sum' /><label for='sum'>Összegezve</label></span>-->
           <span class="current"></span>
           """
     @$el.html(str)

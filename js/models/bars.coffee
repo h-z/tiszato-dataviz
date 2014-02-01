@@ -7,7 +7,7 @@ class App.Bars extends Backbone.View
     @bottom = o.bottom
     @top = o.top
     @left = o.left
-    @norm = 10.0
+    @norm = 200.0
     App.eventer.on("bars-#{@region}", (event) => @update(event))
     App.eventer.on("sum", (sum) => @norm = if sum then 200.0 else 10.0 )
 
