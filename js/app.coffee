@@ -1,6 +1,6 @@
 window.App =
   years: {}
-  step: 1000
+  step: 3000
 
   eventer: _.extend({}, Backbone.Events)
 
@@ -27,10 +27,11 @@ window.App =
           load: ->
             App.chart = @
             App.eventer.on('current', (event) =>
+              d = new Date(2011, 0, (1 + (event['current'] - 1) * 7))
               for serie in @series
                 if event['current'] == 1
                   serie.setData([])
-                serie.addPoint(event['chartData'][serie.name])
+                serie.addPoint([parseInt(d.getTime()), event['chartData'][serie.name]])
             )
             App.eventer.on('sum', (sum) =>
               if sum
@@ -44,6 +45,12 @@ window.App =
       xAxis:
         categories: @categories()
         max: _.max(@categories())
+        tickLength: 0
+        type: 'datetime'
+        tickInterval: 14 * 24 * 3600000
+        labels:
+          formatter: ->
+            Highcharts.dateFormat('%b %d', @value)
       yAxis:
         max: 5000
         title:
@@ -57,16 +64,18 @@ window.App =
         spline:
           marker:
             enabled: false
+          lineWidth: 4
       series: @series()
     )
 
-  categories: -> [1..52]
+  categories: ->
+    (new Date(2011, 0, (1 + (i - 1) * 7))).getTime() for i in [1..52]
 
   series: ->
     colors =
-      2011: '#204988'
-      2012: '#008000'
-      2013: '#D1301D'
+      2011: '#2049FF'
+      2012: '#00F000'
+      2013: '#F1301D'
     for year in @years.years
       serie = {}
       serie.name = year.getYear()
