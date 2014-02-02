@@ -1,6 +1,6 @@
 window.App =
   years: {}
-  step: 3000
+  step: 4000
 
   eventer: _.extend({}, Backbone.Events)
 
@@ -20,6 +20,13 @@ window.App =
     $('body').append((new App.Controls()).render().$el)
 
   createChart: ->
+    Highcharts.setOptions(
+      lang:
+        months: ['január', 'február', 'március',
+                 'április', 'május', 'június',
+                 'július', 'augusztus', 'szeptember',
+                 'október', 'november', 'december']
+    )
     $('.chart').highcharts(
       chart:
         type: 'spline'
@@ -47,10 +54,11 @@ window.App =
         max: _.max(@categories())
         tickLength: 0
         type: 'datetime'
-        tickInterval: 14 * 24 * 3600000
+        tickInterval: 35 * 24 * 3600000
         labels:
           formatter: ->
-            Highcharts.dateFormat('%b %d', @value)
+            #Highcharts.dateFormat('%b %d', @value)
+            Highcharts.dateFormat('%B', @value)
       yAxis:
         max: 5000
         title:
