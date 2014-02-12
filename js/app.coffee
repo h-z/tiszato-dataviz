@@ -122,8 +122,8 @@ window.App =
       left: 875
     ,
       region: 8
-      top: 360
-      left: 805
+      top: 380
+      left: 815
     ,
       region: 9
       top: 258
