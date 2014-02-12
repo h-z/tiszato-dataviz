@@ -12,10 +12,17 @@ class App.Player
   show: ->
     data = App.years.getWeekly(@idx, true)
     for region in [0..10]
-      e =
-        2011: data[2011][region]
-        2012: data[2012][region]
-        2013: data[2013][region]
+      if 4 != region
+        e =
+          2011: data[2011][region]
+          2012: data[2012][region]
+          2013: data[2013][region]
+      else
+        e =
+          2011: data[2011][4] + data[2011][5]
+          2012: data[2012][4] + data[2012][5]
+          2013: data[2013][4] + data[2013][5]
+
       App.eventer.trigger("bars-#{region + 1}",  e)
     App.eventer.trigger('current',
       current: @idx

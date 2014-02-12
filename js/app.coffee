@@ -113,10 +113,10 @@ window.App =
       top: 158
       left: 606
     ,
-      region: 6
-      top: 174
-      left: 771
-    ,
+ #     region: 6
+ #     top: 174
+ #     left: 771
+ #   ,
       region: 7
       top: 269
       left: 875

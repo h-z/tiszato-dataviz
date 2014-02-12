@@ -32,6 +32,7 @@ class App.Bars extends Backbone.View
       top: @top - m
     )
     for year, value of nv
-      @$el.find("div[data-year='#{year}']").css
+      @$el.find("div[data-year='#{year}']").css(
         height: value
         marginTop: m - value
+      ).attr('title', "#{year}: #{values[year]}")
