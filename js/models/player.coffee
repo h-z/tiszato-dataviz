@@ -33,8 +33,10 @@ class App.Player
   next: ->
     @idx++
     if @idx == App.years.getMaxLength() - 1
-      @idx = 1
-    @show()
+      #@idx = 1
+      @stop()
+    else
+      @show()
 
 #  prev: ->
 #    @idx = (@idx - 1) % App.years.getMaxLength()
@@ -42,6 +44,7 @@ class App.Player
 
   play: =>
     @stop()
+    @idx = 0
     @timer = setInterval(( => @next()), App.step)
     @
 
