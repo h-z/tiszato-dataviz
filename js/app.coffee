@@ -28,6 +28,10 @@ window.App =
                  'október', 'november', 'december']
     )
     $('.chart').highcharts(
+      legend:
+        itemStyle:
+          fontSize: '18px'
+          fontWeight: 'bold'
       chart:
         type: 'spline'
         events:
@@ -60,7 +64,11 @@ window.App =
             #Highcharts.dateFormat('%b %d', @value)
             Highcharts.dateFormat('%B', @value)
       yAxis:
+        min: 1
         max: 5000
+        labels:
+          formatter: ->
+            Highcharts.numberFormat(this.value, 0,'','')
         title:
           text: 'Horgásznapok'
         plotLines: [
